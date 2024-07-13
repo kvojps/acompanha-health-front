@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   width: 50%;
-  background-color: #F4F6F8;
+  background-color: #f4f6f8;
 }
 
 .login-form {
@@ -26,9 +26,17 @@
 
 .login-form label {
   display: flex;
-  border: 1px solid #c1c1c1;
-  border-radius: 0.25rem;
+  border: 2px solid #fff;
+  border-radius: 4px;
   margin-bottom: 1.5rem;
+}
+
+.login-form label:hover {
+  border: 2px solid #1351b4;
+}
+
+.login-form label:focus-within {
+  border: 2px solid #1351b4;
 }
 
 .login-icon {
