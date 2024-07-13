@@ -1,14 +1,24 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faLock,
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/free-solid-svg-icons";
 import "./Login.css";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -34,11 +44,14 @@ const Login: React.FC = () => {
             </div>
             <input
               placeholder="Senha"
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            <div className="login-icon" onClick={togglePasswordVisibility}>
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+            </div>
           </label>
           <button type="submit">Entrar</button>
         </form>
