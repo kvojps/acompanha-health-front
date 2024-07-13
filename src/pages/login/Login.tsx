@@ -43,7 +43,9 @@ const Login: React.FC = () => {
           <button type="submit">Entrar</button>
         </form>
       </div>
-      <div className="login-img-container"></div>
+      <div className="login-img-container">
+        <img src="src/assets/login-background-img.jpg" alt="" />
+      </div>
     </div>
   );
 };
