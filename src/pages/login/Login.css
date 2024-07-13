@@ -19,21 +19,41 @@
 .login-form h2 {
   margin: 0;
   margin-bottom: 1.5rem;
+  color: #1351B4;
 }
 
 .login-form label {
   display: flex;
-  flex-direction: column;
-}
-
-.login-form label input {
-  height: 1.5rem;
+  border:1px solid #c1c1c1;
+  border-radius: 0.25rem;
   margin-bottom: 1.5rem;
 }
 
+.login-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #1351B4;
+}
+
+.login-form label input {
+    border:0px solid #c1c1c1;
+    width: 100%;
+    outline: none;
+    height: 2.625rem;
+    font-size: 1.125rem;
+}
+
 .login-form button {
-  width: 20%;
-  padding: 0.25rem;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #1351B4;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 .login-img-container {
