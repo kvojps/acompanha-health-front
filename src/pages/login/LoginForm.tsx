@@ -1,5 +1,6 @@
 import { Button, Checkbox, Form, Grid, Input, theme, Typography } from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const { useToken } = theme;
 const { useBreakpoint } = Grid;
@@ -8,9 +9,11 @@ const { Text, Title, Link } = Typography;
 export default function LoginForm() {
   const { token } = useToken();
   const screens = useBreakpoint();
+  const navigate = useNavigate();
 
   const onFinish = (values: any) => {
     console.log("Received values of form: ", values);
+    navigate("/home");
   };
 
   const styles = {
@@ -28,9 +31,9 @@ export default function LoginForm() {
       marginBottom: token.marginSM,
     },
     logo: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     },
     section: {
       alignItems: "center",
