@@ -6,7 +6,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  background: #1351b4;
+  background: #434343;
+  border-bottom: 4px solid #1677ff;
 }
 
 .logo {
