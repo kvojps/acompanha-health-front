@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Table, Tag, Button, Space, Modal, Form, Input, Select } from "antd";
-import { UserAddOutlined } from "@ant-design/icons";
+import {
+  UserAddOutlined,
+  EditOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import dataSource from "./UserMockData";
 import LayoutSchema from "../../components/layout/Layout";
 
@@ -8,7 +12,9 @@ const { Option } = Select;
 
 const User: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [form] = Form.useForm();
+  const [currentUser, setCurrentUser] = useState(null);
 
   const columns = [
     {
@@ -51,14 +57,42 @@ const User: React.FC = () => {
       dataIndex: "updatedAt",
       key: "updatedAt",
     },
+    {
+      title: "Ações",
+      key: "action",
+      render: (_: any, record: any) => (
+        <Space size="middle">
+          <Button icon={<EditOutlined />} onClick={() => handleEdit(record)} />
+          <Button
+            icon={<DeleteOutlined />}
+            onClick={() => handleDelete(record)}
+          />
+        </Space>
+      ),
+    },
   ];
 
   const handleAddUser = () => {
+    setCurrentUser(null);
+    form.resetFields();
     setIsModalVisible(true);
+  };
+
+  const handleEdit = (record: any) => {
+    setCurrentUser(record);
+    form.setFieldsValue(record);
+    setIsModalVisible(true);
+  };
+
+  const handleDelete = (record: any) => {
+    setCurrentUser(record);
+    setIsDeleteModalVisible(true);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setIsDeleteModalVisible(false);
+    form.resetFields();
   };
 
   const handleOk = () => {
@@ -72,6 +106,11 @@ const User: React.FC = () => {
       .catch((info) => {
         console.log("Validate Failed:", info);
       });
+  };
+
+  const handleDeleteConfirm = () => {
+    console.log("Delete user: ", currentUser);
+    setIsDeleteModalVisible(false);
   };
 
   return (
@@ -94,14 +133,14 @@ const User: React.FC = () => {
       </Space>
       <Table dataSource={dataSource} columns={columns} />
       <Modal
-        title="Adicionar Usuário"
+        title={currentUser ? "Editar Usuário" : "Adicionar Usuário"}
         open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
         okText="Salvar"
         cancelText="Cancelar"
       >
-        <Form form={form} layout="vertical" name="add_user_form">
+        <Form form={form} layout="vertical" name="user_form">
           <Form.Item
             name="email"
             label="Email"
@@ -109,13 +148,17 @@ const User: React.FC = () => {
           >
             <Input />
           </Form.Item>
-          <Form.Item
-            name="password"
-            label="Senha"
-            rules={[{ required: true, message: "Por favor, insira a senha!" }]}
-          >
-            <Input.Password />
-          </Form.Item>
+          {!currentUser && (
+            <Form.Item
+              name="password"
+              label="Senha"
+              rules={[
+                { required: true, message: "Por favor, insira a senha!" },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+          )}
           <Form.Item
             name="name"
             label="Nome"
@@ -139,6 +182,16 @@ const User: React.FC = () => {
             </Select>
           </Form.Item>
         </Form>
+      </Modal>
+      <Modal
+        title="Confirmar Exclusão"
+        open={isDeleteModalVisible}
+        onOk={handleDeleteConfirm}
+        onCancel={handleCancel}
+        okText="Excluir"
+        cancelText="Cancelar"
+      >
+        <p>Você tem certeza que deseja excluir este usuário?</p>
       </Modal>
     </LayoutSchema>
   );
