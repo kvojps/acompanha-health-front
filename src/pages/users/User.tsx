@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, Tag } from "antd";
 import dataSource from "./UserMockData";
+import LayoutSchema from "../../components/layout/Layout";
 
 const User: React.FC = () => {
   const columns = [
@@ -46,7 +47,11 @@ const User: React.FC = () => {
     },
   ];
 
-  return <Table dataSource={dataSource} columns={columns} />;
+  return (
+    <LayoutSchema>
+      <Table dataSource={dataSource} columns={columns} />;
+    </LayoutSchema>
+  );
 };
 
 export default User;

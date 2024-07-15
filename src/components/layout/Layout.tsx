@@ -1,0 +1,24 @@
+import React from "react";
+import { Layout } from "antd";
+import Navigation from "../../components/navigation/Navigation";
+
+const { Header, Content, Footer } = Layout;
+
+interface LayoutSchemaProps {
+  children: React.ReactNode;
+}
+
+const LayoutSchema: React.FC<LayoutSchemaProps> = ({ children }) => {
+  return (
+    <Layout style={{ minHeight: "100vh" }}>
+      <Navigation />
+      <Layout>
+        <Header style={{ background: "#fff", padding: 0 }} />
+        <Content style={{ margin: "16px" }}>{children}</Content>
+        <Footer style={{ textAlign: "center" }}>AcompanhaHealth ©2024</Footer>
+      </Layout>
+    </Layout>
+  );
+};
+
+export default LayoutSchema;
