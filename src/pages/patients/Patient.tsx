@@ -1,5 +1,18 @@
-import { DeleteOutlined, EditOutlined, UserAddOutlined } from "@ant-design/icons";
-import { Button, DatePicker, Form, Input, Modal, Select, Space, Table } from "antd";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  MedicineBoxOutlined,
+} from "@ant-design/icons";
+import {
+  Button,
+  DatePicker,
+  Form,
+  Input,
+  Modal,
+  Select,
+  Space,
+  Table,
+} from "antd";
 import moment from "moment";
 import React, { useState } from "react";
 import LayoutSchema from "../../components/layout/Layout";
@@ -29,7 +42,7 @@ const Patient: React.FC = () => {
       title: "Data de Nascimento",
       dataIndex: "birthDate",
       key: "birthDate",
-      render: (date: any) => moment(date).format('DD/MM/YYYY'),
+      render: (date: any) => moment(date).format("DD/MM/YYYY"),
     },
     {
       title: "Sexo",
@@ -62,7 +75,10 @@ const Patient: React.FC = () => {
       render: (_: any, record: any) => (
         <Space size="middle">
           <Button icon={<EditOutlined />} onClick={() => handleEdit(record)} />
-          <Button icon={<DeleteOutlined />} onClick={() => handleDelete(record)} />
+          <Button
+            icon={<DeleteOutlined />}
+            onClick={() => handleDelete(record)}
+          />
         </Space>
       ),
     },
@@ -78,7 +94,7 @@ const Patient: React.FC = () => {
     setCurrentPatient(record);
     form.setFieldsValue({
       ...record,
-      birthDate: moment(record.birthDate)
+      birthDate: moment(record.birthDate),
     });
     setIsModalVisible(true);
   };
@@ -100,7 +116,9 @@ const Patient: React.FC = () => {
       .then((values) => {
         if (currentPatient) {
           const updatedPatients = patients.map((patient) =>
-            patient.cns === currentPatient.cns ? { ...patient, ...values } : patient
+            patient.cns === currentPatient.cns
+              ? { ...patient, ...values }
+              : patient
           );
           setPatients(updatedPatients);
         } else {
@@ -115,7 +133,9 @@ const Patient: React.FC = () => {
   };
 
   const handleDeleteConfirm = () => {
-    const updatedPatients = patients.filter((patient) => patient.cns !== currentPatient.cns);
+    const updatedPatients = patients.filter(
+      (patient) => patient.cns !== currentPatient.cns
+    );
     setPatients(updatedPatients);
     setIsDeleteModalVisible(false);
   };
@@ -133,7 +153,7 @@ const Patient: React.FC = () => {
         <Button
           type="primary"
           onClick={handleAddPatient}
-          icon={<UserAddOutlined />}
+          icon={<MedicineBoxOutlined />}
         >
           Adicionar Paciente
         </Button>
@@ -166,14 +186,21 @@ const Patient: React.FC = () => {
           <Form.Item
             name="birthDate"
             label="Data de Nascimento"
-            rules={[{ required: true, message: "Por favor, insira a data de nascimento!" }]}
+            rules={[
+              {
+                required: true,
+                message: "Por favor, insira a data de nascimento!",
+              },
+            ]}
           >
             <DatePicker format="DD/MM/YYYY" />
           </Form.Item>
           <Form.Item
             name="gender"
             label="Sexo"
-            rules={[{ required: true, message: "Por favor, selecione o sexo!" }]}
+            rules={[
+              { required: true, message: "Por favor, selecione o sexo!" },
+            ]}
           >
             <Select>
               <Option value="Masculino">Masculino</Option>
@@ -184,7 +211,12 @@ const Patient: React.FC = () => {
           <Form.Item
             name="pregnancyStage"
             label="Estágio da Gravidez"
-            rules={[{ required: true, message: "Por favor, selecione o estágio da gravidez!" }]}
+            rules={[
+              {
+                required: true,
+                message: "Por favor, selecione o estágio da gravidez!",
+              },
+            ]}
           >
             <Select>
               <Option value="Primeiro trimestre">Primeiro trimestre</Option>
@@ -196,7 +228,9 @@ const Patient: React.FC = () => {
           <Form.Item
             name="race"
             label="Raça"
-            rules={[{ required: true, message: "Por favor, selecione a raça!" }]}
+            rules={[
+              { required: true, message: "Por favor, selecione a raça!" },
+            ]}
           >
             <Select>
               <Option value="Branco">Branco</Option>
@@ -210,10 +244,17 @@ const Patient: React.FC = () => {
           <Form.Item
             name="educationLevel"
             label="Escolaridade"
-            rules={[{ required: true, message: "Por favor, selecione a escolaridade!" }]}
+            rules={[
+              {
+                required: true,
+                message: "Por favor, selecione a escolaridade!",
+              },
+            ]}
           >
             <Select>
-              <Option value="Fundamental Incompleto">Fundamental Incompleto</Option>
+              <Option value="Fundamental Incompleto">
+                Fundamental Incompleto
+              </Option>
               <Option value="Fundamental Completo">Fundamental Completo</Option>
               <Option value="Médio Incompleto">Médio Incompleto</Option>
               <Option value="Médio Completo">Médio Completo</Option>
@@ -224,7 +265,9 @@ const Patient: React.FC = () => {
           <Form.Item
             name="motherName"
             label="Nome da Mãe"
-            rules={[{ required: true, message: "Por favor, insira o nome da mãe!" }]}
+            rules={[
+              { required: true, message: "Por favor, insira o nome da mãe!" },
+            ]}
           >
             <Input />
           </Form.Item>
