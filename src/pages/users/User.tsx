@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Table, Tag, Button, Space, Modal, Form, Input, Select } from "antd";
 import {
-  UserAddOutlined,
-  EditOutlined,
   DeleteOutlined,
+  EditOutlined,
+  UserAddOutlined,
 } from "@ant-design/icons";
-import dataSource from "./UserMockData";
+import { Button, Form, Input, Modal, Select, Space, Table, Tag } from "antd";
+import React, { useState } from "react";
 import LayoutSchema from "../../components/layout/Layout";
+import dataSource from "./UserMockData";
 
 const { Option } = Select;
 

@@ -1,5 +1,5 @@
-import { Button, Checkbox, Form, Grid, Input, theme, Typography } from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
+import { Button, Checkbox, Form, Grid, Input, theme, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const { useToken } = theme;

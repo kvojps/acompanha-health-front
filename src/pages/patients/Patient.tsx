@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Table, Button, Space, Modal, Form, Input, Select, DatePicker } from "antd";
-import { UserAddOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import dataSource from "./PatientMockData";
-import LayoutSchema from "../../components/layout/Layout";
+import { DeleteOutlined, EditOutlined, UserAddOutlined } from "@ant-design/icons";
+import { Button, DatePicker, Form, Input, Modal, Select, Space, Table } from "antd";
 import moment from "moment";
+import React, { useState } from "react";
+import LayoutSchema from "../../components/layout/Layout";
+import dataSource from "./PatientMockData";
 
 const { Option } = Select;
 

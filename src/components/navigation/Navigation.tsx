@@ -1,13 +1,13 @@
+import {
+  HomeOutlined,
+  MedicineBoxOutlined,
+  MenuOutlined,
+  NotificationOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Button, Drawer, Layout, Menu } from "antd";
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Layout, Menu, Drawer, Button } from "antd";
-import {
-  MenuOutlined,
-  HomeOutlined,
-  UserOutlined,
-  MedicineBoxOutlined,
-  NotificationOutlined,
-} from "@ant-design/icons";
 import "./Navigation.css";
 
 const { Header } = Layout;
@@ -52,7 +52,10 @@ const Navigation: React.FC = () => {
         onClose={onClose}
         open={visible}
       >
-        <Menu mode="inline" defaultSelectedKeys={[getMenuKey(location.pathname)]}>
+        <Menu
+          mode="inline"
+          defaultSelectedKeys={[getMenuKey(location.pathname)]}
+        >
           <Menu.Item key="1" icon={<HomeOutlined />}>
             <Link to="/home">Tela inicial</Link>
           </Menu.Item>

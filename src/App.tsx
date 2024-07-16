@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/login/Login";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
-import User from "./pages/users/User";
-import Patient from "./pages/patients/Patient";
+import Login from "./pages/login/Login";
 import Notification from "./pages/notifications/Notification";
+import Patient from "./pages/patients/Patient";
+import User from "./pages/users/User";
 
 import "./App.css";
 
