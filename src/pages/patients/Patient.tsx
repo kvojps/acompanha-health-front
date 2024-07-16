@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Table, Button, Space, Modal, Form, Input, Select, DatePicker } from "antd";
 import { UserAddOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import dataSource from "./PatientMockData"; // Renomeado de UserMockData para PatientMockData
+import dataSource from "./PatientMockData";
 import LayoutSchema from "../../components/layout/Layout";
 import moment from "moment";
 
