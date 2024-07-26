@@ -22,21 +22,36 @@ const Notification: React.FC = () => {
       title: "Registro médico",
       dataIndex: "medical_record",
       key: "medical_record",
+      sorter: (a: any, b: any) => a.medical_record.localeCompare(b.medical_record),
     },
     {
       title: "Nome do Paciente",
       dataIndex: "patient_name",
       key: "patient_name",
+      sorter: (a: any, b: any) => a.patient_name.localeCompare(b.patient_name),
     },
     {
       title: "Tipo de entrada",
       dataIndex: "entry_type",
       key: "entry_type",
+      filters: [
+        { text: "Consulta", value: "Consulta" },
+        { text: "Exame", value: "Exame" },
+        { text: "Internação", value: "Internação" },
+      ],
+      onFilter: (value: any, record: any) => record.entry_type.includes(value),
     },
     {
       title: "População especial",
       dataIndex: "special_population",
       key: "special_population",
+      filters: [
+        { text: "Nenhum", value: "Nenhum" },
+        { text: "Gestante", value: "Gestante" },
+        { text: "Criança", value: "Criança" },
+        { text: "Idoso", value: "Idoso" },
+      ],
+      onFilter: (value: any, record: any) => record.special_population.includes(value),
     },
     {
       title: "É beneficiário do governo",
@@ -76,6 +91,13 @@ const Notification: React.FC = () => {
       title: "Unidade de saúde",
       dataIndex: "health_unit",
       key: "health_unit",
+      filters: [
+        { text: "Unidade A", value: "Unidade A" },
+        { text: "Unidade B", value: "Unidade B" },
+        { text: "Unidade C", value: "Unidade C" },
+        { text: "Unidade D", value: "Unidade D" },
+      ],
+      onFilter: (value: any, record: any) => record.health_unit.includes(value),
     },
     {
       title: "Ações",
