@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Table, Button, Space, Modal, Form, Input, Select } from "antd";
+import { Table, Button, Space, Modal, Form, Input, Select, Tag } from "antd";
 import {
   UserAddOutlined,
   EditOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
 import LayoutSchema from "../../components/layout/Layout";
-import dataSource from "./NotificationMockData";
+import dataSource from "./NotificationMockData"; // Importando os dados mock
 
 const { Option } = Select;
 
@@ -42,6 +42,9 @@ const Notification: React.FC = () => {
       title: "É beneficiário do governo",
       dataIndex: "is_government_beneficiary",
       key: "is_government_beneficiary",
+      render: (text: any) => (
+        <Tag color={text === "Sim" ? "green" : "red"}>{text}</Tag>
+      ),
     },
     {
       title: "Forma",
@@ -57,11 +60,17 @@ const Notification: React.FC = () => {
       title: "Diagnóstico",
       dataIndex: "diagnosis",
       key: "diagnosis",
+      render: (text: any) => (
+        <Tag color={text === "Positivo" ? "green" : "red"}>{text}</Tag>
+      ),
     },
     {
       title: "Cultura",
       dataIndex: "culture",
       key: "culture",
+      render: (text: any) => (
+        <Tag color={text === "Positivo" ? "green" : "red"}>{text}</Tag>
+      ),
     },
     {
       title: "Unidade de saúde",
