@@ -31,6 +31,12 @@ const User: React.FC = () => {
       title: "Perfil",
       dataIndex: "profile",
       key: "profile",
+      filters: [
+        { text: "Administrador", value: "Administrador" },
+        { text: "Secretaria", value: "Secretaria" },
+        { text: "Profissional de saúde", value: "Profissional de saúde" },
+      ],
+      onFilter: (value: any, record: any) => record.profile.includes(value),
       render: (profile: string) => {
         let color = "blue";
         if (profile === "Administrador") {

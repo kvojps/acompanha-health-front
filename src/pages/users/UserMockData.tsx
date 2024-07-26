@@ -3,8 +3,8 @@ const dataSource = [
     email: "user1@example.com",
     name: "Usuário 1",
     profile: "Administrador",
-    createdAt: "2023-01-01",
-    updatedAt: "2023-07-01",
+    createdAt: "2024-01-01",
+    updatedAt: "2024-07-01",
   },
   {
     email: "user2@example.com",
