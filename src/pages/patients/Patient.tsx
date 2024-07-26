@@ -12,7 +12,6 @@ import {
   Select,
   Space,
   Table,
-  Tag,
 } from "antd";
 import moment from "moment";
 import React, { useState } from "react";
