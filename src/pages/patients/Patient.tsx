@@ -12,6 +12,7 @@ import {
   Select,
   Space,
   Table,
+  Tag,
 } from "antd";
 import moment from "moment";
 import React, { useState } from "react";
@@ -48,21 +49,52 @@ const Patient: React.FC = () => {
       title: "Sexo",
       dataIndex: "gender",
       key: "gender",
+      filters: [
+        { text: "Masculino", value: "Masculino" },
+        { text: "Feminino", value: "Feminino" },
+        { text: "Outro", value: "Outro" },
+      ],
+      onFilter: (value: any, record: any) => record.gender.includes(value),
     },
     {
       title: "Estágio da Gravidez",
       dataIndex: "pregnancyStage",
       key: "pregnancyStage",
+      filters: [
+        { text: "Primeiro trimestre", value: "Primeiro trimestre" },
+        { text: "Segundo trimestre", value: "Segundo trimestre" },
+        { text: "Terceiro trimestre", value: "Terceiro trimestre" },
+        { text: "N/A", value: "N/A" },
+      ],
+      onFilter: (value: any, record: any) => record.pregnancyStage.includes(value),
     },
     {
       title: "Raça",
       dataIndex: "race",
       key: "race",
+      filters: [
+        { text: "Branco", value: "Branco" },
+        { text: "Preto", value: "Preto" },
+        { text: "Pardo", value: "Pardo" },
+        { text: "Amarelo", value: "Amarelo" },
+        { text: "Indígena", value: "Indígena" },
+        { text: "Outro", value: "Outro" },
+      ],
+      onFilter: (value: any, record: any) => record.race.includes(value),
     },
     {
       title: "Escolaridade",
       dataIndex: "educationLevel",
       key: "educationLevel",
+      filters: [
+        { text: "Fundamental Incompleto", value: "Fundamental Incompleto" },
+        { text: "Fundamental Completo", value: "Fundamental Completo" },
+        { text: "Médio Incompleto", value: "Médio Incompleto" },
+        { text: "Médio Completo", value: "Médio Completo" },
+        { text: "Superior Incompleto", value: "Superior Incompleto" },
+        { text: "Superior Completo", value: "Superior Completo" },
+      ],
+      onFilter: (value: any, record: any) => record.educationLevel.includes(value),
     },
     {
       title: "Nome da Mãe",
@@ -158,7 +190,11 @@ const Patient: React.FC = () => {
           Adicionar Paciente
         </Button>
       </Space>
-      <Table dataSource={patients} columns={columns} rowKey="cns" />
+      <Table
+        dataSource={patients}
+        columns={columns}
+        rowKey="cns"
+      />
       <Modal
         title={currentPatient ? "Editar Paciente" : "Adicionar Paciente"}
         open={isModalVisible}
