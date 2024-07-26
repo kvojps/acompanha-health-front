@@ -6,33 +6,9 @@ import {
   DeleteOutlined,
 } from "@ant-design/icons";
 import LayoutSchema from "../../components/layout/Layout";
+import dataSource from "./NotificationMockData";
 
 const { Option } = Select;
-
-const dataSource = [
-  {
-    medical_record: "12345",
-    entry_type: "Consulta",
-    special_population: "Nenhum",
-    is_government_beneficiary: "Sim",
-    form: "Formulário 1",
-    extra_pulmonary_type: "Nenhum",
-    diagnosis: "Positivo",
-    culture: "Negativo",
-    health_unit: "Unidade A",
-  },
-  {
-    medical_record: "67890",
-    entry_type: "Exame",
-    special_population: "Gestante",
-    is_government_beneficiary: "Não",
-    form: "Formulário 2",
-    extra_pulmonary_type: "Pulmonar",
-    diagnosis: "Negativo",
-    culture: "Positivo",
-    health_unit: "Unidade B",
-  },
-];
 
 const Notification: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -46,6 +22,11 @@ const Notification: React.FC = () => {
       title: "Registro médico",
       dataIndex: "medical_record",
       key: "medical_record",
+    },
+    {
+      title: "Nome do Paciente",
+      dataIndex: "patient_name",
+      key: "patient_name",
     },
     {
       title: "Tipo de entrada",
@@ -203,6 +184,18 @@ const Notification: React.FC = () => {
             <Input />
           </Form.Item>
           <Form.Item
+            name="patient_name"
+            label="Nome do Paciente"
+            rules={[
+              {
+                required: true,
+                message: "Por favor, insira o nome do paciente!",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
             name="entry_type"
             label="Tipo de entrada"
             rules={[
@@ -309,7 +302,7 @@ const Notification: React.FC = () => {
         okText="Excluir"
         cancelText="Cancelar"
       >
-        <p>Você tem certeza que deseja excluir esta notificação?</p>
+        <p>Tem certeza de que deseja excluir esta notificação?</p>
       </Modal>
     </LayoutSchema>
   );
