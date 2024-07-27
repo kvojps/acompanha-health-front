@@ -9,7 +9,7 @@ const Login: React.FC = () => {
         <LoginForm/>
       </div>
       <div className="login-img-container">
-        <img src="src/assets/login-background-img.jpg" alt="" />
+        <img src="https://i.imgur.com/IE16wsl.jpg" alt="" />
       </div>
     </div>
   );
