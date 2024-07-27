@@ -6,30 +6,30 @@ import LayoutSchema from "../../components/layout/Layout";
 const { Content } = Layout;
 
 const dataEntryType = [
-  { name: "New Case", value: 50 },
-  { name: "Recurrent", value: 20 },
-  { name: "Re-entry after abandonment", value: 10 },
-  { name: "Transfer in", value: 10 },
-  { name: "Unspecified", value: 10 }
+  { name: "Novo caso", value: 50 },
+  { name: "Recorrente", value: 20 },
+  { name: "Reentrada após abandono", value: 10 },
+  { name: "Transferência", value: 10 },
+  { name: "Desconhecido", value: 10 }
 ];
 
 const dataForm = [
-  { name: "Pulmonary", value: 60 },
-  { name: "Extra Pulmonary", value: 30 },
-  { name: "Both", value: 10 }
+  { name: "Pulmonar", value: 60 },
+  { name: "Extra Pulmonar", value: 30 },
+  { name: "Ambos", value: 10 }
 ];
 
 const dataDiagnosis = [
-  { name: "Positive", value: 50 },
-  { name: "Negative", value: 20 },
-  { name: "Not Done", value: 30 }
+  { name: "Positivo", value: 50 },
+  { name: "Negativo", value: 20 },
+  { name: "Não realizado", value: 30 }
 ];
 
 const dataCulture = [
-  { name: "Positive", value: 50 },
-  { name: "Negative", value: 20 },
-  { name: "In Progress", value: 10 },
-  { name: "Not Done", value: 10 }
+  { name: "Positivo", value: 50 },
+  { name: "Negativo", value: 20 },
+  { name: "Em progresso", value: 10 },
+  { name: "Não realizado", value: 10 }
 ];
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#FF6384"];
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
       <Content style={{ margin: '0 auto', maxWidth: '1200px' }}>
         <Row gutter={[16, 16]}>
           <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-            <Card title="Entry Type">
+            <Card title="Tipo de entrada">
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-            <Card title="Form">
+            <Card title="Forma">
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={dataForm}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -77,7 +77,7 @@ const Home: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-            <Card title="Diagnosis">
+            <Card title="Diagnóstico">
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
             </Card>
           </Col>
           <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-            <Card title="Culture">
+            <Card title="Cultura">
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={dataCulture}>
                   <CartesianGrid strokeDasharray="3 3" />
