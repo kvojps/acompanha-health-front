@@ -38,6 +38,14 @@ const Home: React.FC = () => {
   return (
     <LayoutSchema>
       <Content style={{ margin: '0 auto', maxWidth: '1200px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+          <h1 style={{ fontSize: '36px', color: '#1890ff' }}>
+            Panorama Geral da Tuberculose no AcompanhaHealth
+          </h1>
+          <p style={{ fontSize: '18px', color: '#555' }}>
+            Visualização detalhada dos dados de notificação de tuberculose
+          </p>
+        </div>
         <Row gutter={[16, 16]}>
           <Col xs={24} sm={24} md={12} lg={12} xl={12}>
             <Card title="Tipo de entrada">
