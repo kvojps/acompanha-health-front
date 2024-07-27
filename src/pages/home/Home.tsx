@@ -61,7 +61,7 @@ const Home: React.FC = () => {
                     fill="#8884d8"
                     dataKey="value"
                   >
-                    {dataEntryType.map((entry, index) => (
+                    {dataEntryType.map((_, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                     fill="#8884d8"
                     dataKey="value"
                   >
-                    {dataDiagnosis.map((entry, index) => (
+                    {dataDiagnosis.map((_, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
