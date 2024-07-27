@@ -1,16 +1,16 @@
 import React from "react";
 import { Layout, Row, Col, Card } from "antd";
-import { PieChart, Pie, Cell, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
+import { PieChart, Pie, Cell, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer } from "recharts";
 import LayoutSchema from "../../components/layout/Layout";
 
 const { Content } = Layout;
 
 const dataEntryType = [
-  { name: "Novo caso", value: 50 },
-  { name: "Recorrente", value: 20 },
-  { name: "Após abandono", value: 10 },
-  { name: "Transferência", value: 10 },
-  { name: "Desconhecido", value: 10 }
+  { name: "New Case", value: 50 },
+  { name: "Recurrent", value: 20 },
+  { name: "Re-entry after abandonment", value: 10 },
+  { name: "Transfer in", value: 10 },
+  { name: "Unspecified", value: 10 }
 ];
 
 const dataForm = [
@@ -39,70 +39,78 @@ const Home: React.FC = () => {
     <LayoutSchema>
       <Content style={{ margin: '0 auto', maxWidth: '1200px' }}>
         <Row gutter={[16, 16]}>
-          <Col xs={24} sm={24} md={12} lg={12} xl={8}>
+          <Col xs={24} sm={24} md={12} lg={12} xl={12}>
             <Card title="Entry Type">
-              <PieChart width={300} height={300}>
-                <Pie
-                  data={dataEntryType}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ name }) => name}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {dataEntryType.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={dataEntryType}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={({ name }) => name}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                  >
+                    {dataEntryType.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
             </Card>
           </Col>
-          <Col xs={24} sm={24} md={12} lg={12} xl={8}>
+          <Col xs={24} sm={24} md={12} lg={12} xl={12}>
             <Card title="Form">
-              <BarChart width={300} height={300} data={dataForm}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="value" fill="#8884d8" />
-              </BarChart>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={dataForm}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="value" fill="#8884d8" />
+                </BarChart>
+              </ResponsiveContainer>
             </Card>
           </Col>
-          <Col xs={24} sm={24} md={12} lg={12} xl={8}>
+          <Col xs={24} sm={24} md={12} lg={12} xl={12}>
             <Card title="Diagnosis">
-              <PieChart width={300} height={300}>
-                <Pie
-                  data={dataDiagnosis}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ name }) => name}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {dataDiagnosis.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={dataDiagnosis}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={({ name }) => name}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                  >
+                    {dataDiagnosis.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
             </Card>
           </Col>
-          <Col xs={24} sm={24} md={12} lg={12} xl={8}>
+          <Col xs={24} sm={24} md={12} lg={12} xl={12}>
             <Card title="Culture">
-              <BarChart width={300} height={300} data={dataCulture}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="value" fill="#8884d8" />
-              </BarChart>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={dataCulture}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="value" fill="#8884d8" />
+                </BarChart>
+              </ResponsiveContainer>
             </Card>
           </Col>
         </Row>
